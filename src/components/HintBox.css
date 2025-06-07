@@ -1,0 +1,34 @@
+.hint-container {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .hint-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 15px 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 400px;
+    color: #f0f0f0;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.8s ease;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  

@@ -1,0 +1,118 @@
+/* Reset & Body */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.5s ease;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #1b2735 0%, #090a0f 100%);
+  color: #ffffff;
+}
+
+body.light {
+  background: linear-gradient(135deg, #d7d2cc 0%, #304352 100%);
+  color: #1c1c1c;
+}
+
+.app {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Scoreboard */
+.scoreboard {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Hint Button */
+.hint-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #f7971e, #ffd200);
+  border: none;
+  color: #1c1c1c;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.hint-btn:hover {
+  background: linear-gradient(135deg, #ffb347, #ffcc33);
+  transform: translateY(-2px);
+}
+
+/* Hint Box */
+.hint-box {
+  margin: 20px auto;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  width: 80%;
+  max-width: 400px;
+  font-size: 1rem;
+  font-weight: 500;
+  backdrop-filter: blur(5px);
+}
+
+/* Button Group */
+.button-group {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.new-game-btn {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0px 5px 15px rgba(67, 206, 162, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.new-game-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 20px rgba(67, 206, 162, 0.6);
+  background: linear-gradient(135deg, #32bea6, #0d4c8b);
+}
+
+.theme-toggle {
+  background: linear-gradient(135deg, #56ccf2, #2f80ed);
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0px 5px 15px rgba(86, 204, 242, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 20px rgba(86, 204, 242, 0.6);
+  background: linear-gradient(135deg, #45b5e9, #2a6bc0);
+}
+
+@media (max-width: 600px) {
+  .new-game-btn, .theme-toggle {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
