@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Papa from "papaparse";
 import axios from "axios";
 import confetti from "canvas-confetti";
@@ -12,15 +12,17 @@ function App() {
   const [guesses, setGuesses] = useState([]);
   const [currentGuess, setCurrentGuess] = useState("");
   const [gameOver, setGameOver] = useState(false);
-  const [hint, setHint] = useState("");         // Store hint
-  const [hintVisible, setHintVisible] = useState(false);  // Show hint only after click
-  const [hintUnlocked, setHintUnlocked] = useState(false);  // Allow to click after first wrong guess
+  const [hint, setHint] = useState("");
+  const [hintVisible, setHintVisible] = useState(false);
+  const [hintUnlocked, setHintUnlocked] = useState(false);
   const [notification, setNotification] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [stats, setStats] = useState(() => {
     const savedStats = localStorage.getItem("wordleStats");
     return savedStats ? JSON.parse(savedStats) : { wins: 0, losses: 0 };
   });
+
+  const inputRef = useRef();  // For mobile keyboard focus
 
   useEffect(() => {
     Papa.parse("/5_letter_words.csv", {
@@ -52,6 +54,12 @@ function App() {
   useEffect(() => {
     document.body.className = isDarkMode ? "dark" : "light";
   }, [isDarkMode]);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus(); // Focus input on mount
+    }
+  }, []);
 
   const fetchHint = async (word) => {
     try {
@@ -124,7 +132,10 @@ function App() {
     setGameOver(false);
     setHintUnlocked(false);
     setHintVisible(false);
-    setHint(""); // Reset hint
+    setHint("");
+    if (inputRef.current) {
+      inputRef.current.focus(); // Focus on new game
+    }
   };
 
   const updateStats = (result) => {
@@ -139,11 +150,25 @@ function App() {
   };
 
   return (
-    <div className="app" onKeyDown={handleKeyDown} tabIndex="0">
+    <div className="app" onClick={() => inputRef.current && inputRef.current.focus()}>
       <h1>WORDLE</h1>
       <div className="scoreboard">
         Wins: {stats.wins} | Losses: {stats.losses}
       </div>
+
+      {/* Hidden Input to trigger mobile keyboard */}
+      <input
+        ref={inputRef}
+        type="text"
+        value=""
+        onKeyDown={handleKeyDown}
+        autoFocus
+        style={{
+          opacity: 0,
+          position: 'absolute',
+          left: '-9999px',
+        }}
+      />
 
       {/* Hint Button */}
       {hintUnlocked && (
