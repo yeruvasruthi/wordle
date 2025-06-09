@@ -33,7 +33,7 @@ A fully responsive and mobile-friendly Wordle game built with **React.js**. This
 
 ## 🚀 Getting Started
 
-### Install Dependencies
+### Clone the repo
 
 ```bash
 git clone https://github.com/yeruvasruthi/wordle.git
