@@ -1,12 +1,71 @@
-# React + Vite
+# 🎯 Wordle Clone — React.js Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully responsive and mobile-friendly Wordle game built with **React.js**. This clone includes real-time letter feedback, a dictionary-powered hint system, dark/light theme toggle, and local win/loss tracking.
 
-Currently, two official plugins are available:
+> [Play the Live Game Here](https://famous-quokka-f2bfd4.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🧩 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🎲 **Random Word Selection**: Each game picks a 5-letter word from a large dataset.
+- 📖 **Dictionary API Integration**: Uses [dictionaryapi.dev](https://dictionaryapi.dev) to fetch real definitions as hints.
+- **Smart Hint System**:
+  - Unlocks after the first wrong guess.
+  - Shows actual meaning if available.
+  - Fallback: _"The word starts with ‘X’ and ends with ‘Y’"_, if no definition is found.
+- 🎨 **Light & Dark Modes**: Switch themes anytime.
+- 📱 **Mobile Friendly**: Hidden input ensures keyboard works seamlessly on mobile.
+- 🎉 **Confetti Celebration**: On correct guess.
+- 📊 **Scoreboard**: Tracks wins and losses using `localStorage`.
+- 🔄 **New Game Button**: Instantly resets the board and picks a new word.
+
+---
+
+## 📷 Screenshots
+
+### 🕶️ Dark Mode
+<img width="1165" alt="Dark mode" src="https://github.com/user-attachments/assets/9d117181-ecd5-4df4-93a5-5086ed905a6d" />
+### ☀️ Light Mode
+<img width="1083" alt="Light mode" src="https://github.com/user-attachments/assets/7b34b7a7-637c-4857-abbd-4aac0e3dbd1c" />
+
+---
+
+## 🚀 Getting Started
+
+### Install Dependencies
+
+```bash
+git clone https://github.com/yeruvasruthi/wordle.git
+cd wordle
+---
+
+### Install Dependencies
+```bash
+npm install
+---
+### Start app locally
+```bash
+npm start
+---
+### API Used
+https://api.dictionaryapi.dev
+Example API Call:
+```ruby
+https://api.dictionaryapi.dev/api/v2/entries/en/brain
+---
+###Built With
+React.js
+Axios (API calls)
+PapaParse (CSV parsing)
+CSS Flexbox/Grid
+Dictionary API (Free)
+LocalStorage
+----
+###Deployment
+This project is deployed using Netlify:
+https://famous-quokka-f2bfd4.netlify.app
+---
+###Author
+Sruthi Yeruva
+https://linkedin.com/sruthi-yeruva
